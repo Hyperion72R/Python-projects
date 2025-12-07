@@ -57,26 +57,3 @@ name = "John"
 string = f"Hi there, my name is {name}"
 
 string.title()
-
-# if statements
-
-temperature_check = False
-
-temperature = 11
-
-""" 
-if temperature > 25:
-    print("It's very hot!")
-elif temperature > 25:
-    print("It's hot!")
-else:
-    print("It's nice weather!")
-"""
-
-if temperature_check:
-    if temperature >= 25:
-        print("enjoy the weather!")
-    else:
-        print("need to wait")
-else:
-    print("the thermometer doesn't work")

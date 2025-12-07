@@ -42,41 +42,5 @@ full_name_plus_underscore = full_name + '\n'+underscore
 
 print(full_name_plus_underscore)
 
-# booleans
 
 Test = True
-
-Test2 = False
-
-X = Test or Test2
-
-# string manipulation
-
-name = "John"
-
-string = f"Hi there, my name is {name}"
-
-string.title()
-
-# if statements
-
-temperature_check = False
-
-temperature = 11
-
-""" 
-if temperature > 25:
-    print("It's very hot!")
-elif temperature > 25:
-    print("It's hot!")
-else:
-    print("It's nice weather!")
-"""
-
-if temperature_check:
-    if temperature >= 25:
-        print("enjoy the weather!")
-    else:
-        print("need to wait")
-else:
-    print("the thermometer doesn't work")

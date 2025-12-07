@@ -60,18 +60,17 @@ string.title()
 
 # if statements
 
-temperature_check = False
+temperature_check = True
 
-temperature = 11
+temperature = 31
 
-""" 
 if temperature > 25:
     print("It's very hot!")
 elif temperature > 25:
     print("It's hot!")
 else:
-    print("It's nice weather!")
-"""
+    print("It's mice weather!")
+
 
 if temperature_check:
     if temperature >= 25:

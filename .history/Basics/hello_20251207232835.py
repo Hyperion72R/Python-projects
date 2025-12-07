@@ -60,7 +60,7 @@ string.title()
 
 # if statements
 
-temperature_check = False
+temperature_check = True
 
 temperature = 11
 
