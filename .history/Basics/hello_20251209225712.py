@@ -85,4 +85,4 @@ else:
 # loops
 
 for i in range(5):
-    print(i, "test")
+    print(i)
