@@ -113,12 +113,3 @@ my_list.remove(25)
 
 
 # dictionaries
-
-person = {
-    "name": "Alice",
-    "age": 25,
-    "city": "New York"
-}
-
-
-person["age"]

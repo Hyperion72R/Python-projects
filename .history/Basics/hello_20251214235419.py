@@ -119,6 +119,3 @@ person = {
     "age": 25,
     "city": "New York"
 }
-
-
-person["age"]
