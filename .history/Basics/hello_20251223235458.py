@@ -166,11 +166,8 @@ def calculate_total():
 calculate_total()
 
 
-def check_weather(temperature):
+def check_weather():
     if temperature > 25:
         print("It's hot!")
     else:
         print("It's nice weather!")
-
-
-check_weather(27)
