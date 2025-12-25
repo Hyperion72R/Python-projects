@@ -188,11 +188,13 @@ greet(name="Anna")
 # lastName = ln
 
 
-def greet2(n="Joanna", ln="Kama"):
+def greet2(n, ln):
     print(f"Hello, {n}, {ln}")
 
 
-greet2()
+greet2("Joanna", "Kama")
+
+
 # reverse order
 
 greet2(ln="Nana", n="Nadia")
