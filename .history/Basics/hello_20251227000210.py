@@ -197,14 +197,3 @@ def greet2(n, ln="Kama", l="Madera"):
 # reverse order
 
 greet2(ln="Nana", n="Nadia")
-
-
-# calculator
-
-def calculate_total(price, tax_rate, discount):
-    tax = price * tax_rate
-    final_price = price + tax - discount
-    print(f"Total: ${final_price}")
-
-
-x = calculate_total(100, 0.08, 10)
