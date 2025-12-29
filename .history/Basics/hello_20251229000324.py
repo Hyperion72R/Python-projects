@@ -204,10 +204,7 @@ greet2(ln="Nana", n="Nadia")
 def calculate_total(price, tax_rate, discount):
     tax = price * tax_rate
     final_price = price + tax - discount
-    return round(final_price, 2)
+    print(f"Total: ${final_price}")
 
 
-total = calculate_total(price=100, tax_rate=0.08, discount=10)
-
-print(f"Total: ${total}")
-# print(x1)
+calculate_total(price=100, tax_rate=0.08, discount=10)
