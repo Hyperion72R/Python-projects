@@ -205,13 +205,12 @@ greet2(ln="Nana", n="Nadia")
 # Global variable vs local variable
 # difference in discount variable
 
-# global variable
+
 discount = 20
 
 
 def calculate_total(price, tax_rate, discount):
     tax_rate = 0.08
-    # local variable
     discount = 10
 
     tax = price * tax_rate
