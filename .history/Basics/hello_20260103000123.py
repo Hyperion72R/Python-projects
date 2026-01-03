@@ -252,20 +252,4 @@ def calculate_area(width, height):
 
 room_area = calculate_area(10, 12)
 
-print(f"Room size: {room_area} sq ft")
-
-print("interactive session vs terminal")
-
-
-def add_print(a, b):
-    print(a+b)
-
-
-add_print(a=5, b=10)
-
-
-def add_return(a, b):
-    return a+b
-
-
-add_return(a=5, b=10)
+print(f"oom size: {room_area} sq ft")
