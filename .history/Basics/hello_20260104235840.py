@@ -256,8 +256,9 @@ print(f"Room size: {room_area} sq ft")
 
 print("interactive session vs terminal")
 
-
 # add_print is visible in the terminal
+
+
 def add_print(a, b):
     print(a+b)
 

@@ -257,19 +257,15 @@ print(f"Room size: {room_area} sq ft")
 print("interactive session vs terminal")
 
 
-# add_print is visible in the terminal
 def add_print(a, b):
     print(a+b)
 
 
-print_result = add_print(a=5, b=10)
-#  variable print_result is not visible in interactive session
+add_print(a=5, b=10)
 
 
-# add_return is not visible in the terminal
 def add_return(a, b):
     return a+b
 
 
-result = add_return(a=5, b=10)
-# variable result is visible in interactive session
+add_return(a=5, b=10)
