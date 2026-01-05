@@ -285,10 +285,3 @@ def double(number):
 result = double(5)
 
 total = double(5) + double(3)
-
-
-print(double(10))
-
-
-if double(7) > 10:
-    print("Big number")
