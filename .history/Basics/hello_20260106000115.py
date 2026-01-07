@@ -294,5 +294,3 @@ print(double(10))
 # Use in conditions
 if double(7) > 10:
     print("Big number")
-
-    
