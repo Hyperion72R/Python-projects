@@ -297,10 +297,10 @@ if double(7) > 10:
 
 
 def simple_function():
-    numbers = [1, 2, 3, 4, 5, 6, 7]
-    first_number = numbers[0]
-    last_number = numbers[-1]
+    number = [1, 2, 3, 4, 5, 6, 7]
+    first_number = number[0]
+    last_number = number[-1]
     return first_number, last_number
 
 
-first_number, last_number = simple_function()
+simple_function()
