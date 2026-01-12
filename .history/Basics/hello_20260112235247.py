@@ -325,7 +325,5 @@ get_greeting_print("Anna")
 
 get_greeting_return("Lola")
 
-# add math module
-
 
 math.sqrt(16)
