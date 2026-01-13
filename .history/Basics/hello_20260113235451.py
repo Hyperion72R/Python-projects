@@ -15,7 +15,6 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
-import random
 from math import sqrt, pi
 import math
 test1 = (
@@ -333,6 +332,3 @@ math.sqrt(16)
 
 
 sqrt(16)
-
-
-number = random.randint(1, 10)
