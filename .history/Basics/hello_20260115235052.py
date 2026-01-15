@@ -341,7 +341,3 @@ sqrt(16)
 number = random.randint(1, 10)
 
 choice = random.choice(["apple", "bannana", "orange"])
-
-# import datetime
-
-today = datetime.date.today()
