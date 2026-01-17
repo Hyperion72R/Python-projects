@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+from math import sqrt
 import random
 from math import sqrt, pi
 import math
@@ -338,7 +339,6 @@ sqrt(16)
 
 # import random
 
-# from math import sqrt
 
 sqrt16 = sqrt(16)
 
