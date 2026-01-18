@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+from datetime import datetime, timedelta
 import random
 from math import sqrt, pi
 import math
@@ -351,8 +352,6 @@ choice = random.choice(["apple", "bannana", "orange"])
 today = datetime.date.today()
 
 # time in Japan
-
-# from datetime import datetime, timedelta
 
 
 def godzina_w_japonii():
