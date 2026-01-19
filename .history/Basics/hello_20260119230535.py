@@ -365,6 +365,6 @@ def godzina_w_japonii():
 print("Aktualna godzina w Japonii:", godzina_w_japonii())
 
 # JSON
-# import json
+
 date = {"name": "Anna", "age": 30}
 json_string = json.dumps(data)
