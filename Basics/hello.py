@@ -375,3 +375,13 @@ json_string = json.dumps(person_date)
 # import os
 current_dir = os.getcwd()
 print(current_dir)
+
+
+# List files in a directory
+
+def list_files(path="."):
+    return os.listdir(path)
+
+
+# example
+print(list_files())

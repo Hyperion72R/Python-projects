@@ -15,6 +15,10 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import json
+import random
+from math import sqrt, pi
+import math
 test1 = (
     "TEST 1"
     "TEST 2"
@@ -205,12 +209,13 @@ greet2(ln="Nana", n="Nadia")
 # Global variable vs local variable
 # difference in discount variable
 
-
+# global variable
 discount = 20
 
 
 def calculate_total(price, tax_rate, discount):
     tax_rate = 0.08
+    # local variable
     discount = 10
 
     tax = price * tax_rate
@@ -223,3 +228,158 @@ def calculate_total(price, tax_rate, discount):
 discount
 
 total = calculate_total(price=100, tax_rate=0.08, discount=10)
+
+
+# return value from function
+
+def add_print(a, b):
+    print(a+b)
+
+
+add_print(a=5, b=10)
+
+
+def add_return(a, b, c):
+    return a + b + c
+
+
+result = add_return(a=5, b=10, c=10)
+
+result + 20
+
+
+def calculate_area(width, height):
+    area = width * height
+
+    return area
+
+
+room_area = calculate_area(10, 12)
+
+print(f"Room size: {room_area} sq ft")
+
+print("interactive session vs terminal")
+
+
+# add_print is visible in the terminal
+def add_print(a, b):
+    print(a+b)
+
+
+print_result = add_print(a=5, b=10)
+#  variable print_result is not visible in interactive session
+
+
+# add_return is not visible in the terminal
+def add_return(a, b):
+    return a+b
+
+
+result = add_return(a=5, b=10)
+# variable result is visible in interactive session
+
+
+# Using return values
+
+
+def double(number):
+    return number * 2
+
+
+# Store in variable
+result = double(5)
+
+# Use in expressions
+total = double(5) + double(3)
+
+# pass to other functions
+print(double(10))
+
+# Use in conditions
+if double(7) > 10:
+    print("Big number")
+
+
+def simple_function():
+    numbers = [1, 2, 3, 4, 5, 6, 7]
+    first_number = numbers[0]
+    last_number = numbers[-1]
+    return first_number, last_number
+
+# f = first_number
+# l = last_number
+
+
+f, l = simple_function()
+
+# print vs return
+
+
+def get_greeting_print(name):
+    print(f"Hello {name}!")
+# Just displays
+
+
+def get_greeting_return(name):
+    return (f"Hello {name}!")
+
+
+get_greeting_print("Anna")
+
+get_greeting_return("Lola")
+
+# add math module
+
+math.sqrt(16)
+
+
+sqrt(16)
+
+# import math
+
+# import random
+
+# from math import sqrt
+
+sqrt16 = sqrt(16)
+
+number = random.randint(1, 10)
+
+choice = random.choice(["apple", "bannana", "orange"])
+
+# import datetime
+
+today = datetime.date.today()
+
+# time in Japan
+
+# from datetime import datetime, timedelta
+
+
+def godzina_w_japonii():
+    utc_time = datetime.utcnow()
+    tokyo_time = utc_time + timedelta(hours=9)
+    return tokyo_time.strftime("%Y-%m-%d %H:%M:%S")
+
+
+print("Aktualna godzina w Japonii:", godzina_w_japonii())
+
+# JSON
+# import json
+person_date = {"name": "Anna", "age": 30}
+json_string = json.dumps(person_date)
+
+
+# OS
+
+# import os
+current_dir = os.getcwd()
+print(current_dir)
+
+
+# lista plików
+def lista_plikow(sciezka="."):
+    return os.listdir(sciezka)
+
+
+print(lista_plikow())
