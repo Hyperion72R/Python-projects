@@ -399,3 +399,18 @@ def file_exists(filename):
 file_exists("test.txt")
 
 print(file_exists("test.txt"))
+
+# Function to check path type (file or directory)
+
+# import os
+
+
+def path_type(path):
+    if os.path.isdir(path):
+        return "katalog"
+    if os.path.isfile(path):
+        return "plik"
+    return "nie istnieje"
+
+
+path_type("test")
