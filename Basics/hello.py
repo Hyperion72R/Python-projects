@@ -414,3 +414,14 @@ def path_type(path):
 
 
 path_type("test")
+
+
+# import os
+
+def file_size(name):
+    if not os.path.isfile(name):
+        return "file does not exist"
+    return os.path.getsize(name)
+
+
+file_size("test")
