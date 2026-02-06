@@ -15,6 +15,11 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import os
+import json
+import random
+from math import sqrt, pi
+import math
 test1 = (
     "TEST 1"
     "TEST 2"
@@ -295,4 +300,130 @@ print(double(10))
 if double(7) > 10:
     print("Big number")
 
-    
+
+def simple_function():
+    numbers = [1, 2, 3, 4, 5, 6, 7]
+    first_number = numbers[0]
+    last_number = numbers[-1]
+    return first_number, last_number
+
+# f = first_number
+# l = last_number
+
+
+f, l = simple_function()
+
+# print vs return
+
+
+def get_greeting_print(name):
+    print(f"Hello {name}!")
+# Just displays
+
+
+def get_greeting_return(name):
+    return (f"Hello {name}!")
+
+
+get_greeting_print("Anna")
+
+get_greeting_return("Lola")
+
+# add math module
+
+math.sqrt(16)
+
+
+sqrt(16)
+
+# import math
+
+# import random
+
+# from math import sqrt
+
+sqrt16 = sqrt(16)
+
+number = random.randint(1, 10)
+
+choice = random.choice(["apple", "bannana", "orange"])
+
+# import datetime
+
+today = datetime.date.today()
+
+# time in Japan
+
+# from datetime import datetime, timedelta
+
+
+def godzina_w_japonii():
+    utc_time = datetime.utcnow()
+    tokyo_time = utc_time + timedelta(hours=9)
+    return tokyo_time.strftime("%Y-%m-%d %H:%M:%S")
+
+
+print("Aktualna godzina w Japonii:", godzina_w_japonii())
+
+# JSON
+# import json
+person_date = {"name": "Anna", "age": 30}
+json_string = json.dumps(person_date)
+
+
+# OS
+
+# import os
+current_dir = os.getcwd()
+print(current_dir)
+
+
+# List files in a directory
+
+def list_files(path="."):
+    return os.listdir(path)
+
+
+# example
+print(list_files())
+
+
+# Check if a file exists
+
+# import os
+
+def file_exists(filename):
+    return os.path.exists(filename)
+
+
+file_exists("test.txt")
+
+print(file_exists("test.txt"))
+
+# Function to check path type (file or directory)
+
+# import os
+
+
+def path_type(path):
+    if os.path.isdir(path):
+        return "katalog"
+    if os.path.isfile(path):
+        return "plik"
+    return "nie istnieje"
+
+
+path_type("test")
+
+
+# import os
+
+
+def file_size_check(name):
+    if not os.path.isfile(name):
+        return "File does not exist"
+    size = os.path.getsize(name)
+    return f"File size: {size} bytes"
+
+
+print(file_size_check("test"))
