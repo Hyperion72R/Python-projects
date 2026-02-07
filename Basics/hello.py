@@ -427,3 +427,10 @@ def file_size_check(name):
 
 
 print(file_size_check("test"))
+
+
+def system_name():
+    return os.name
+
+
+print(system_name())
