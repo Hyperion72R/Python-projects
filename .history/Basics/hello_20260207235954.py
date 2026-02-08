@@ -430,7 +430,6 @@ print(file_size_check("test"))
 
 
 # check the operating system type
-
 # import os
 
 def system_name():
