@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import platform
 import os
 import json
 import random
@@ -439,9 +440,6 @@ print(file_size_check("test"))
 
 # print(system_name())
 
-
-# import os
-# import platform
 
 def system_name():
     """
