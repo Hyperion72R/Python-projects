@@ -447,8 +447,12 @@ def system_name():
     """
     Returns basic information about the operating system.
     """
+    os_name = os.name
+    if os_name == "nt":
+        os_name = "windows new technology"
+
     return {
-        "os_name": os.name,
+        "os_name": os_name,
         "system": platform.system(),
         "release": platform.release()
     }
