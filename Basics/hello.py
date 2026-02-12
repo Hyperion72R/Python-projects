@@ -429,17 +429,6 @@ def file_size_check(name):
 print(file_size_check("test"))
 
 
-# check the operating system type
-
-# import os
-
-# def system_name():
-#     return os.name
-
-
-# print(system_name())
-
-
 # import os
 # import platform
 
