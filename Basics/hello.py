@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import platform
 import os
 import json
 import random
@@ -405,15 +406,20 @@ print(file_exists("test.txt"))
 # import os
 
 
-def path_type(path):
-    if os.path.isdir(path):
-        return "katalog"
+def path_info(path):
+    if not os.path.exists(path):
+        return "nie istnieje"
+
     if os.path.isfile(path):
-        return "plik"
-    return "nie istnieje"
+        size = os.path.getsize(path)
+        return f"plik ({size} bajtów)"
+
+    if os.path.isdir(path):
+        items = len(os.listdir(path))
+        return f"katalog ({items} elementów)"
 
 
-path_type("test")
+print(path_info("test"))
 
 
 # import os
@@ -428,9 +434,6 @@ def file_size_check(name):
 
 print(file_size_check("test"))
 
-
-# import os
-# import platform
 
 def system_name():
     """
