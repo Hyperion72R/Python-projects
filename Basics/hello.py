@@ -375,8 +375,14 @@ json_string = json.dumps(person_date)
 # OS
 
 # import os
+
 current_dir = os.getcwd()
-print(current_dir)
+print(f"Current directory: {current_dir}")
+
+files = os.listdir(current_dir)
+print("Files in directory:")
+for f in files:
+    print(f" - {f}")
 
 
 # List files in a directory
