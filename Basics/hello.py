@@ -376,6 +376,9 @@ json_string = json.dumps(person_date)
 
 # import os
 
+# prints the current working directory
+# and lists all files and folders inside it.
+
 current_dir = os.getcwd()
 print(f"Current directory: {current_dir}")
 
