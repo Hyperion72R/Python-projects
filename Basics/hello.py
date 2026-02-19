@@ -393,11 +393,12 @@ for f in files:
 # def list_files(path="."):
 #     return os.listdir(path)
 
+# import os
 
 def list_files(path="."):
     if not os.path.exists(path):
         raise FileNotFoundError(f"Path '{path}' does not exist")
-    return os.listdir(path)
+    return sorted(os.listdir(path))
 
 
 # example
