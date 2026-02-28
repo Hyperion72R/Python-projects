@@ -432,27 +432,6 @@ def file_exists(filename):
 
 print(file_exists("test.txt"))
 
-# Function to check path type (file or directory)
-
-# import os
-
-
-def path_info(path):
-    if not os.path.exists(path):
-        return "nie istnieje"
-
-    if os.path.isfile(path):
-        size = os.path.getsize(path)
-        return f"plik ({size} bajtów)"
-
-    if os.path.isdir(path):
-        items = len(os.listdir(path))
-        return f"katalog ({items} elementów)"
-
-
-print(path_info("test"))
-
-
 # import os
 
 

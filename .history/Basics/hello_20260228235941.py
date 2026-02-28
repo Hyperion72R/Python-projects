@@ -15,6 +15,8 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import platform
+import os
 import json
 import random
 from math import sqrt, pi
@@ -373,13 +375,97 @@ json_string = json.dumps(person_date)
 # OS
 
 # import os
+
+# prints the current working directory
+# and lists all files and folders inside it.
+
 current_dir = os.getcwd()
-print(current_dir)
+print(f"Current directory: {current_dir}")
+
+files = os.listdir(current_dir)
+print("Files in directory:")
+for f in files:
+    print(f" - {f}")
 
 
-# lista plików
-def lista_plikow(sciezka="."):
-    return os.listdir(sciezka)
+# List files in a directory
+
+# def list_files(path="."):
+#     return os.listdir(path)
+
+# import os
 
 
-print(lista_plikow())
+def list_files(path=".", count=True):
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Path '{path}' does not exist")
+
+    files = sorted(os.listdir(path))
+
+# optional count parameter
+    if count:
+        return files, len(files)
+
+    return files
+
+
+# example
+print(list_files())
+
+
+# Check if a file exists
+
+# import os
+
+# Add try/except to handle OSError
+
+def file_exists(filename):
+    try:
+        if os.path.isfile(filename):
+            size = os.path.getsize(filename)
+            return f"File exists. Size: {size} bytes"
+        else:
+            return "File does not exist"
+    except OSError:
+        return "Error accessing file"
+
+
+print(file_exists("test.txt"))
+
+# import os
+
+
+def file_size_check(name):
+    if not os.path.isfile(name):
+        return "File does not exist"
+    size = os.path.getsize(name)
+    return f"File size: {size} bytes"
+
+
+print(file_size_check("test"))
+
+
+# Returns basic operating system information (name, system, and release).
+# If os.name is "nt", it replaces it with a more descriptive Windows name.
+# When run directly, the script prints this information.
+
+def system_name():
+    """
+    Returns basic information about the operating system.
+    """
+    os_name = os.name
+    if os_name == "nt":
+        os_name = "windows new technology"
+
+    return {
+        "os_name": os_name,
+        "system": platform.system(),
+        "release": platform.release()
+    }
+
+
+if __name__ == "__main__":
+    info = system_name()
+    print("Operating system info:")
+    for key, value in info.items():
+        print(f"{key}: {value}")
