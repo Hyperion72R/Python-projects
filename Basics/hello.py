@@ -434,6 +434,10 @@ print(file_exists("test.txt"))
 
 # import os
 
+# Checks if the given file exists.
+# If it exists, returns its size in bytes.
+# If it does not exist, returns an error message.
+
 
 def file_size_check(name):
     if not os.path.isfile(name):
