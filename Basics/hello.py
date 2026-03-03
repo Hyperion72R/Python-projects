@@ -473,3 +473,34 @@ if __name__ == "__main__":
     print("Operating system info:")
     for key, value in info.items():
         print(f"{key}: {value}")
+
+
+# Simple statistics function (statistics module)
+
+# import statistics
+
+
+def basic_statistics(numbers):
+    """
+    Returns basic statistics for a list of numbers.
+    """
+    if not numbers:
+        return "List is empty"
+
+    return {
+        "count": len(numbers),
+        "mean": round(statistics.mean(numbers), 2),
+        "median": statistics.median(numbers),
+        "min": min(numbers),
+        "max": max(numbers)
+    }
+
+
+# example
+data = [10, 5, 8, 12, 3, 7]
+
+result = basic_statistics(data)
+
+print("Statistics:")
+for key, value in result.items():
+    print(f"{key}: {value}")
