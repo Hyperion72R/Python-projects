@@ -479,7 +479,6 @@ if __name__ == "__main__":
 
 # import statistics
 
-
 def basic_statistics(numbers):
     """
     Returns basic statistics for a list of numbers.
@@ -492,7 +491,8 @@ def basic_statistics(numbers):
         "mean": round(statistics.mean(numbers), 2),
         "median": statistics.median(numbers),
         "min": min(numbers),
-        "max": max(numbers)
+        "max": max(numbers),
+        "std_dev": round(statistics.stdev(numbers), 2) if len(numbers) > 1 else 0
     }
 
 
