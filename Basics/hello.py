@@ -477,6 +477,10 @@ if __name__ == "__main__":
 
 # Simple statistics function (statistics module)
 
+# Calculates basic statistics (count, mean, median, min, max, std deviation)
+# for a given list of numbers and returns them as a dictionary.
+
+
 # import statistics
 
 def basic_statistics(numbers):
