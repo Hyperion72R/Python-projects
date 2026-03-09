@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import statistics
 import platform
 import os
 import json
@@ -483,6 +484,7 @@ if __name__ == "__main__":
 
 # import statistics
 
+
 def basic_statistics(numbers):
     """
     Returns basic statistics for a list of numbers.
@@ -490,10 +492,16 @@ def basic_statistics(numbers):
     if not numbers:
         return "List is empty"
 
+    try:
+        mode_value = statistics.mode(numbers)
+    except statistics.StatisticsError:
+        mode_value = "No unique mode"
+
     return {
         "count": len(numbers),
         "mean": round(statistics.mean(numbers), 2),
         "median": statistics.median(numbers),
+        "mode": mode_value,
         "min": min(numbers),
         "max": max(numbers),
         "std_dev": round(statistics.stdev(numbers), 2) if len(numbers) > 1 else 0
