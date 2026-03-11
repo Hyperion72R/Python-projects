@@ -15,6 +15,8 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import statistics
+import platform
 import os
 import json
 import random
@@ -374,14 +376,38 @@ json_string = json.dumps(person_date)
 # OS
 
 # import os
+
+# prints the current working directory
+# and lists all files and folders inside it.
+
 current_dir = os.getcwd()
-print(current_dir)
+print(f"Current directory: {current_dir}")
+
+files = os.listdir(current_dir)
+print("Files in directory:")
+for f in files:
+    print(f" - {f}")
 
 
 # List files in a directory
 
-def list_files(path="."):
-    return os.listdir(path)
+# def list_files(path="."):
+#     return os.listdir(path)
+
+# import os
+
+
+def list_files(path=".", count=True):
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"Path '{path}' does not exist")
+
+    files = sorted(os.listdir(path))
+
+# optional count parameter
+    if count:
+        return files, len(files)
+
+    return files
 
 
 # example
@@ -392,31 +418,26 @@ print(list_files())
 
 # import os
 
+# Add try/except to handle OSError
+
 def file_exists(filename):
-    return os.path.exists(filename)
+    try:
+        if os.path.isfile(filename):
+            size = os.path.getsize(filename)
+            return f"File exists. Size: {size} bytes"
+        else:
+            return "File does not exist"
+    except OSError:
+        return "Error accessing file"
 
-
-file_exists("test.txt")
 
 print(file_exists("test.txt"))
 
-# Function to check path type (file or directory)
-
 # import os
 
-
-def path_type(path):
-    if os.path.isdir(path):
-        return "katalog"
-    if os.path.isfile(path):
-        return "plik"
-    return "nie istnieje"
-
-
-path_type("test")
-
-
-# import os
+# Checks if the given file exists.
+# If it exists, returns its size in bytes.
+# If it does not exist, returns an error message.
 
 
 def file_size_check(name):
@@ -429,11 +450,87 @@ def file_size_check(name):
 print(file_size_check("test"))
 
 
-# check the operating system type
-# import os
+# Returns basic operating system information (name, system, and release).
+# If os.name is "nt", it replaces it with a more descriptive Windows name.
+# When run directly, the script prints this information.
 
 def system_name():
-    return os.name
+    """
+    Returns basic information about the operating system.
+    """
+    os_name = os.name
+    if os_name == "nt":
+        os_name = "windows new technology"
+
+    return {
+        "os_name": os_name,
+        "system": platform.system(),
+        "release": platform.release()
+    }
 
 
-print(system_name())
+if __name__ == "__main__":
+    info = system_name()
+    print("Operating system info:")
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+
+# Simple statistics function (statistics module)
+
+# Calculates basic statistics (count, mean, median, min, max, std deviation)
+# for a given list of numbers and returns them as a dictionary.
+
+
+# import statistics
+
+
+def basic_statistics(numbers):
+    """
+    Returns basic statistics for a list of numbers.
+    """
+    if not numbers:
+        return "List is empty"
+
+    try:
+        mode_value = statistics.mode(numbers)
+    except statistics.StatisticsError:
+        mode_value = "No unique mode"
+
+    return {
+        "count": len(numbers),
+        "mean": round(statistics.mean(numbers), 2),
+        "median": statistics.median(numbers),
+        "mode": mode_value,
+        "min": min(numbers),
+        "max": max(numbers),
+        "std_dev": round(statistics.stdev(numbers), 2) if len(numbers) > 1 else 0
+    }
+
+
+# example
+data = [117, 234, 532, 643, 436]
+
+result = basic_statistics(data)
+
+print("Statistics:")
+for key, value in result.items():
+    print(f"{key}: {value}")
+
+
+# Prime number func
+
+def is_prime(number):
+    if number < 2:
+        return False
+
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+
+    return True
+
+
+# example
+print(is_prime(7))   # True
+print(is_prime(10))  # False

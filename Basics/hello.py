@@ -516,3 +516,21 @@ result = basic_statistics(data)
 print("Statistics:")
 for key, value in result.items():
     print(f"{key}: {value}")
+
+
+# Prime number func
+
+def is_prime(number):
+    if number < 2:
+        return False
+
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+
+    return True
+
+
+# example
+print(is_prime(7))   # True
+print(is_prime(10))  # False
