@@ -524,7 +524,10 @@ def is_prime(number):
     if number < 2:
         return False
 
-    for i in range(2, number):
+    # Improvement: check divisors only up to the square root of the number
+    # instead of checking all numbers up to 'number'.
+    # This significantly improves performance for larger numbers.
+    for i in range(2, int(number ** 0.5) + 1):
         if number % i == 0:
             return False
 
