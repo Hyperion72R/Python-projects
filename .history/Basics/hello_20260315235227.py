@@ -521,14 +521,12 @@ for key, value in result.items():
 # Prime number func
 
 def is_prime(number):
-    try:
-        number = int(number)  # try to convert to integer
-    except ValueError:
-        return "Please enter a valid integer."
-
     if number < 2:
         return False
 
+    # Improvement: check divisors only up to the square root of the number
+    # instead of checking all numbers up to 'number'.
+    # This significantly improves performance for larger numbers.
     for i in range(2, int(number ** 0.5) + 1):
         if number % i == 0:
             return False
@@ -536,7 +534,7 @@ def is_prime(number):
     return True
 
 
-# Usage examples:
-print(is_prime(7))      # True
-print(is_prime("13"))   # True
-print(is_prime("a"))    # "Please enter a valid integer."
+# example
+print(is_prime(7))   # True
+print(is_prime(10))  # False
+print(is_prime("a"))
