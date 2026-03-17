@@ -520,7 +520,11 @@ for key, value in result.items():
 
 # Prime number func
 
-def is_prime(number):
+def is_prime(number=None):
+    # If no number is provided, return a friendly message
+    if number is None:
+        return "Please provide a number to check."
+
     try:
         number = int(number)  # try to convert to integer
     except ValueError:
@@ -533,7 +537,6 @@ def is_prime(number):
     # If the number has any divisor in this range, it is not prime.
     # We only check up to sqrt(number) because any larger factor
     # would have a corresponding smaller factor already checked.
-
     for i in range(2, int(number ** 0.5) + 1):
         if number % i == 0:   # Check if 'number' is divisible by i
             return False
@@ -543,5 +546,5 @@ def is_prime(number):
 
 # Usage examples:
 print(is_prime(7))      # True
-print(is_prime("13"))   # True
+print(is_prime())   # True
 print(is_prime("a"))    # "Please enter a valid integer."
