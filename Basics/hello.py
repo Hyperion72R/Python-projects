@@ -548,3 +548,16 @@ def is_prime(number=None):
 print(is_prime(7))      # True
 print(is_prime())   # True
 print(is_prime("a"))    # "Please enter a valid integer."
+
+
+# Anomaly Detector
+def find_anomalies(data):
+    mean = sum(data) / len(data)
+    std_dev = (sum((x - mean) ** 2 for x in data) / len(data)) ** 0.5
+    anomalies = [x for x in data if abs(x - mean) > 2 * std_dev]
+    return anomalies
+
+
+# Example usage
+dataset = [10, 12, 11, 13, 200, 12, 11]
+print("Anomalies:", find_anomalies(dataset))
