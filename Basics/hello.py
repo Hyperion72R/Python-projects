@@ -552,6 +552,8 @@ print(is_prime("a"))    # "Please enter a valid integer."
 
 # Anomaly Detector
 def find_anomalies(data):
+    # Calculates the mean and standard deviation of the data,
+    # then returns values that deviate from the mean by more than 2 standard deviations (anomalies).
     mean = sum(data) / len(data)
     std_dev = (sum((x - mean) ** 2 for x in data) / len(data)) ** 0.5
     anomalies = [x for x in data if abs(x - mean) > 2 * std_dev]
