@@ -563,3 +563,26 @@ def find_anomalies(data):
 # Example usage
 dataset = [10, 12, 11, 13, 200, 12, 11]
 print("Anomalies:", find_anomalies(dataset))
+
+
+# weather API
+
+
+# Coordinates to get weather data
+latitude = 48.86   # Paris latitude
+longitude = 2.36   # Paris longitude
+
+# API URL with our parameters
+url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m"
+
+# Create the request
+response = requests.get(url)
+data = response.json()
+
+print(data)
+
+type(data)
+
+data.keys()
+
+temperature = data["current"]["temperature_2m"]
