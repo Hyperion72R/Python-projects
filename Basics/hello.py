@@ -566,7 +566,7 @@ print("Anomalies:", find_anomalies(dataset))
 
 
 # weather API
-
+# import requests
 
 # Coordinates to get weather data
 latitude = 48.86   # Paris latitude
@@ -586,3 +586,5 @@ type(data)
 data.keys()
 
 temperature = data["current"]["temperature_2m"]
+
+print(f"Temperature in Paris: {temperature}°C")

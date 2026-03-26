@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import statistics
 import platform
 import os
 import json
@@ -417,38 +418,26 @@ print(list_files())
 
 # import os
 
+# Add try/except to handle OSError
+
 def file_exists(filename):
-    if os.path.isfile(filename):
-        size = os.path.getsize(filename)
-        return f"File exists. Size: {size} bytes"
-    else:
-        return "File does not exist"
+    try:
+        if os.path.isfile(filename):
+            size = os.path.getsize(filename)
+            return f"File exists. Size: {size} bytes"
+        else:
+            return "File does not exist"
+    except OSError:
+        return "Error accessing file"
 
 
 print(file_exists("test.txt"))
 
-# Function to check path type (file or directory)
-
 # import os
 
-
-def path_info(path):
-    if not os.path.exists(path):
-        return "nie istnieje"
-
-    if os.path.isfile(path):
-        size = os.path.getsize(path)
-        return f"plik ({size} bajtów)"
-
-    if os.path.isdir(path):
-        items = len(os.listdir(path))
-        return f"katalog ({items} elementów)"
-
-
-print(path_info("test"))
-
-
-# import os
+# Checks if the given file exists.
+# If it exists, returns its size in bytes.
+# If it does not exist, returns an error message.
 
 
 def file_size_check(name):
@@ -460,6 +449,10 @@ def file_size_check(name):
 
 print(file_size_check("test"))
 
+
+# Returns basic operating system information (name, system, and release).
+# If os.name is "nt", it replaces it with a more descriptive Windows name.
+# When run directly, the script prints this information.
 
 def system_name():
     """
@@ -481,3 +474,117 @@ if __name__ == "__main__":
     print("Operating system info:")
     for key, value in info.items():
         print(f"{key}: {value}")
+
+
+# Simple statistics function (statistics module)
+
+# Calculates basic statistics (count, mean, median, min, max, std deviation)
+# for a given list of numbers and returns them as a dictionary.
+
+
+# import statistics
+
+
+def basic_statistics(numbers):
+    """
+    Returns basic statistics for a list of numbers.
+    """
+    if not numbers:
+        return "List is empty"
+
+    try:
+        mode_value = statistics.mode(numbers)
+    except statistics.StatisticsError:
+        mode_value = "No unique mode"
+
+    return {
+        "count": len(numbers),
+        "mean": round(statistics.mean(numbers), 2),
+        "median": statistics.median(numbers),
+        "mode": mode_value,
+        "min": min(numbers),
+        "max": max(numbers),
+        "std_dev": round(statistics.stdev(numbers), 2) if len(numbers) > 1 else 0
+    }
+
+
+# example
+data = [117, 234, 532, 643, 436]
+
+result = basic_statistics(data)
+
+print("Statistics:")
+for key, value in result.items():
+    print(f"{key}: {value}")
+
+
+# Prime number func
+
+def is_prime(number=None):
+    # If no number is provided, return a friendly message
+    if number is None:
+        return "Please provide a number to check."
+
+    try:
+        number = int(number)  # try to convert to integer
+    except ValueError:
+        return "Please enter a valid integer."
+
+    if number < 2:
+        return False  # Numbers less than 2 are not prime
+
+    # Iterate from 2 up to the square root of the number (inclusive).
+    # If the number has any divisor in this range, it is not prime.
+    # We only check up to sqrt(number) because any larger factor
+    # would have a corresponding smaller factor already checked.
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:   # Check if 'number' is divisible by i
+            return False
+
+    return True  # If no divisors were found, the number is prime
+
+
+# Usage examples:
+print(is_prime(7))      # True
+print(is_prime())   # True
+print(is_prime("a"))    # "Please enter a valid integer."
+
+
+# Anomaly Detector
+def find_anomalies(data):
+    # Calculates the mean and standard deviation of the data,
+    # then returns values that deviate from the mean by more than 2 standard deviations (anomalies).
+    mean = sum(data) / len(data)
+    std_dev = (sum((x - mean) ** 2 for x in data) / len(data)) ** 0.5
+    anomalies = [x for x in data if abs(x - mean) > 2 * std_dev]
+    return anomalies
+
+
+# Example usage
+dataset = [10, 12, 11, 13, 200, 12, 11]
+print("Anomalies:", find_anomalies(dataset))
+
+
+# weather API
+# import requests
+
+# Coordinates to get weather data
+latitude = 48.86   # Paris latitude
+longitude = 2.36   # Paris longitude
+
+# API URL with our parameters
+url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m"
+
+# Create the request
+response = requests.get(url)
+data = response.json()
+
+print(data)
+
+type(data)
+
+data.keys()
+
+temperature = data["current"]["temperature_2m"]
+
+print(f"Temperature in Paris: {temperature}°C")
