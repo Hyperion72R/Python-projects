@@ -588,3 +588,21 @@ data.keys()
 temperature = data["current"]["temperature_2m"]
 
 print(f"Temperature in Paris: {temperature}°C")
+
+
+# Temp for Tokyo
+
+# import requests
+
+def get_weather(latitude, longitude):
+    response = requests.get(
+        f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m")
+    data = response.json()
+    return data['current']['temperature_2m']
+
+# Get temperature for Tokyo
+
+
+tokyo_temp = get_weather(35.68, 139.69)
+
+print(f"Tokyo: {tokyo_temp}°C")
