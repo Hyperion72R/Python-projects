@@ -590,8 +590,6 @@ temperature = data["current"]["temperature_2m"]
 print(f"Temperature in Paris: {temperature}°C")
 
 
-# import requests
-
 def get_weather(latitude, longitude):
     response = requests.get(
         f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m")
@@ -607,3 +605,20 @@ tokyo_temp = get_weather(35.68, 139.69)
 print(f"Paris: {paris_temp}°C")
 print(f"London: {london_temp}°C")
 print(f"Tokyo: {tokyo_temp}°C")
+
+# Comparison of temperatures
+
+temps = {}
+
+cities = {
+    "Paris": (48.85, 2.35),
+    "London": (51.50, -0.12),
+    "Tokyo": (35.68, 139.69)
+}
+
+for name, (lat, lon) in cities.items():
+    temps[name] = get_weather(lat, lon)
+
+warmest = max(temps, key=temps.get)
+
+print(f"Warmest city: {warmest} ({temps[warmest]}°C)")
