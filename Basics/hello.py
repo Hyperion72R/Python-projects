@@ -625,3 +625,22 @@ for name, (lat, lon) in cities.items():
 warmest = max(temps, key=temps.get)
 
 print(f"Warmest city: {warmest} ({temps[warmest]}°C)")
+
+#  temperature difference
+
+
+def temperature_difference_details(temps_dict):
+    warmest = max(temps_dict, key=temps_dict.get)
+    coldest = min(temps_dict, key=temps_dict.get)
+
+    diff = temps_dict[warmest] - temps_dict[coldest]
+    diff = round(diff, 1)
+
+    return warmest, coldest, diff
+
+
+warmest, coldest, diff = temperature_difference_details(temps)
+
+print(f"Warmest: {warmest} ({temps[warmest]}°C)")
+print(f"Coldest: {coldest} ({temps[coldest]}°C)")
+print(f"Difference: {diff}°C")
