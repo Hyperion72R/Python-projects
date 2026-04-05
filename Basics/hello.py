@@ -630,6 +630,10 @@ print(f"Warmest city: {warmest} ({temps[warmest]}°C)")
 
 
 def temperature_difference_details(temps_dict):
+
+    # Finds the warmest and coldest entries in the dictionary
+    # and returns their names along with the temperature difference.
+
     warmest = max(temps_dict, key=temps_dict.get)
     coldest = min(temps_dict, key=temps_dict.get)
 

@@ -15,6 +15,7 @@ print(response.status_code)
 # VS
 # Multi-line comments
 
+import statistics
 import platform
 import os
 import json
@@ -477,7 +478,12 @@ if __name__ == "__main__":
 
 # Simple statistics function (statistics module)
 
+# Calculates basic statistics (count, mean, median, min, max, std deviation)
+# for a given list of numbers and returns them as a dictionary.
+
+
 # import statistics
+
 
 def basic_statistics(numbers):
     """
@@ -486,10 +492,16 @@ def basic_statistics(numbers):
     if not numbers:
         return "List is empty"
 
+    try:
+        mode_value = statistics.mode(numbers)
+    except statistics.StatisticsError:
+        mode_value = "No unique mode"
+
     return {
         "count": len(numbers),
         "mean": round(statistics.mean(numbers), 2),
         "median": statistics.median(numbers),
+        "mode": mode_value,
         "min": min(numbers),
         "max": max(numbers),
         "std_dev": round(statistics.stdev(numbers), 2) if len(numbers) > 1 else 0
@@ -497,10 +509,142 @@ def basic_statistics(numbers):
 
 
 # example
-data = [10, 5, 8, 12, 3, 7]
+data = [117, 234, 532, 643, 436]
 
 result = basic_statistics(data)
 
 print("Statistics:")
 for key, value in result.items():
     print(f"{key}: {value}")
+
+
+# Prime number func
+
+def is_prime(number=None):
+    # If no number is provided, return a friendly message
+    if number is None:
+        return "Please provide a number to check."
+
+    try:
+        number = int(number)  # try to convert to integer
+    except ValueError:
+        return "Please enter a valid integer."
+
+    if number < 2:
+        return False  # Numbers less than 2 are not prime
+
+    # Iterate from 2 up to the square root of the number (inclusive).
+    # If the number has any divisor in this range, it is not prime.
+    # We only check up to sqrt(number) because any larger factor
+    # would have a corresponding smaller factor already checked.
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:   # Check if 'number' is divisible by i
+            return False
+
+    return True  # If no divisors were found, the number is prime
+
+
+# Usage examples:
+print(is_prime(7))      # True
+print(is_prime())   # True
+print(is_prime("a"))    # "Please enter a valid integer."
+
+
+# Anomaly Detector
+def find_anomalies(data):
+    # Calculates the mean and standard deviation of the data,
+    # then returns values that deviate from the mean by more than 2 standard deviations (anomalies).
+    mean = sum(data) / len(data)
+    std_dev = (sum((x - mean) ** 2 for x in data) / len(data)) ** 0.5
+    anomalies = [x for x in data if abs(x - mean) > 2 * std_dev]
+    return anomalies
+
+
+# Example usage
+dataset = [10, 12, 11, 13, 200, 12, 11]
+print("Anomalies:", find_anomalies(dataset))
+
+
+# weather API
+# import requests
+
+# Coordinates to get weather data
+latitude = 48.86   # Paris latitude
+longitude = 2.36   # Paris longitude
+
+# API URL with our parameters
+url = f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m"
+
+# Create the request
+response = requests.get(url)
+data = response.json()
+
+print(data)
+
+type(data)
+
+data.keys()
+
+temperature = data["current"]["temperature_2m"]
+
+print(f"Temperature in Paris: {temperature}°C")
+
+
+def get_weather(latitude, longitude):
+    response = requests.get(
+        f"https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,wind_speed_10m")
+    data = response.json()
+    return data['current']['temperature_2m']
+
+
+# Get temperature for different cities
+paris_temp = get_weather(48.85, 2.35)
+london_temp = get_weather(51.50, -0.12)
+tokyo_temp = get_weather(35.68, 139.69)
+
+print(f"Paris: {paris_temp}°C")
+print(f"London: {london_temp}°C")
+print(f"Tokyo: {tokyo_temp}°C")
+
+# Comparison of temperatures
+
+temps = {}
+
+cities = {
+    "Paris": (48.85, 2.35),
+    "London": (51.50, -0.12),
+    "Tokyo": (35.68, 139.69)
+}
+
+# Loop through each city, fetch its temperature, store results,
+# then find and print the city with the highest temperature
+
+for name, (lat, lon) in cities.items():
+    temps[name] = get_weather(lat, lon)
+
+warmest = max(temps, key=temps.get)
+
+print(f"Warmest city: {warmest} ({temps[warmest]}°C)")
+
+#  temperature difference
+
+
+def temperature_difference_details(temps_dict):
+
+    # Finds the warmest and coldest entries in the dictionary
+    # and returns their names along with the temperature difference.
+
+    warmest = max(temps_dict, key=temps_dict.get)
+    coldest = min(temps_dict, key=temps_dict.get)
+
+    diff = temps_dict[warmest] - temps_dict[coldest]
+    diff = round(diff, 1)
+
+    return warmest, coldest, diff
+
+
+warmest, coldest, diff = temperature_difference_details(temps)
+
+print(f"Warmest: {warmest} ({temps[warmest]}°C)")
+print(f"Coldest: {coldest} ({temps[coldest]}°C)")
+print(f"Difference: {diff}°C")
