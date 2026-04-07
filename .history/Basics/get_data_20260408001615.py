@@ -17,8 +17,6 @@ response = requests.get(url)
 data = response.json()
 print(data)
 
-# ---------------------------
-
 # Extract the daily data
 daily_data = data['daily']
 
