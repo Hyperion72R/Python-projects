@@ -47,12 +47,6 @@ plt.plot(df['date'], df['max_temp'], marker='o', label='Max Temp')
 plt.plot(df['date'], df['min_temp'], marker='o', label='Min Temp')
 
 
-for i in range(len(df)):
-    plt.text(df['date'][i], df['max_temp'][i] + 0.5,
-             f"{df['max_temp'][i]:.0f}", ha='center')
-    plt.text(df['date'][i], df['min_temp'][i] - 1,
-             f"{df['min_temp'][i]:.0f}", ha='center')
-
 max_idx = df['max_temp'].idxmax()
 min_idx = df['min_temp'].idxmin()
 
