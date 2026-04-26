@@ -120,8 +120,8 @@ plot_column(data, 'values')
 
 # Create data folder if it doesnt exist
 
-if not os.path.exists('data'):
-    os.makedirs('data')
+if not os.path.exist('data'):
+    os.markedirs('data')
 
 
 # Save to csv

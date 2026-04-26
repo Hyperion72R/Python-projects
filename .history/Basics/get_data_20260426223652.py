@@ -117,14 +117,3 @@ data = pd.DataFrame({
 
 plot_column(data, 'values')
 # -----------------------------------------------------------------
-
-# Create data folder if it doesnt exist
-
-if not os.path.exists('data'):
-    os.makedirs('data')
-
-
-# Save to csv
-
-df.to_csv('data/paris_weather.csv', index=False)
-print("Data saved to data/paris_weather.csv")
