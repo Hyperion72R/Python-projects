@@ -696,9 +696,3 @@ Plock_temp = get_weather_2(52.55, 19.70)
 Poznan_temp = get_weather_2(52.41, 16.93)
 
 Katowice_temp = get_weather_2(50.26, 19.02)
-
-Gizycko_temp = get_weather_2(54.04, 21.77)
-
-Ełk_temp = get_weather_2(53.83, 22.35)
-
-Zabrze_temp = get_weather_2(50.31, 18.78)
