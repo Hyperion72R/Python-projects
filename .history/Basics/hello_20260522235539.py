@@ -712,7 +712,7 @@ cities_2 = {
     "Zabrze": (50.31, 18.78)
 }
 
-# Find and print the city with the highest temperature in Poland from variable cities_2
+# Find and print the city with the highest temperature in Poland
 
 for name_2, (lat_2, lon_2) in cities_2.items():
     temps_2[name_2] = get_weather_2(lat_2, lon_2)
@@ -720,27 +720,3 @@ for name_2, (lat_2, lon_2) in cities_2.items():
 warmest_2 = max(temps_2, key=temps_2.get)
 
 print(f"Warmest city: {warmest_2} ({temps_2[warmest_2]}°C)")
-
-
-#  temperature difference
-
-
-def temperature_difference_details_2(temps_dict_2):
-
-    # Finds the warmest and coldest entries in the dictionary
-    # and returns their names along with the temperature difference.
-
-    warmest_2 = max(temps_dict_2, key=temps_dict_2.get)
-    coldest_2 = min(temps_dict_2, key=temps_dict_2.get)
-
-    diff_2 = temps_dict_2[warmest_2] - temps_dict_2[coldest_2]
-    diff_2 = round(diff_2, 1)
-
-    return warmest_2, coldest_2, diff_2
-
-
-warmest_2, coldest_2, diff_2 = temperature_difference_details_2(temps_2)
-
-print(f"Warmest: {warmest_2} ({temps_2[warmest_2]}°C)")
-print(f"Coldest: {coldest_2} ({temps_2[coldest_2]}°C)")
-print(f"Difference: {diff_2}°C")
