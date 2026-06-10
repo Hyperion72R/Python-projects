@@ -813,7 +813,7 @@ def get_weather_details_2(lat_2, lon_2):
         "&current=temperature_2m,wind_speed_10m,weather_code"
     )
     data_2 = response_2.json()
-# Extract and return selected current weather metrics
+
     return {
         "temp_2": data_2["current"]["temperature_2m"],
         "wind_2": data_2["current"]["wind_speed_10m"],

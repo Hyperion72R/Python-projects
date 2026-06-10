@@ -806,14 +806,13 @@ print(f"Difference: {diff}°C")
 # Weather for cities (Open-Meteo) - Improved version
 
 def get_weather_details_2(lat_2, lon_2):
-    # Fetch weather data from Open-Meteo API using latitude and longitude
     response_2 = requests.get(
         "https://api.open-meteo.com/v1/forecast"
         f"?latitude={lat_2}&longitude={lon_2}"
         "&current=temperature_2m,wind_speed_10m,weather_code"
     )
     data_2 = response_2.json()
-# Extract and return selected current weather metrics
+
     return {
         "temp_2": data_2["current"]["temperature_2m"],
         "wind_2": data_2["current"]["wind_speed_10m"],
