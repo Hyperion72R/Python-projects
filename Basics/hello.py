@@ -810,14 +810,15 @@ def get_weather_details_2(lat_2, lon_2):
     response_2 = requests.get(
         "https://api.open-meteo.com/v1/forecast"
         f"?latitude={lat_2}&longitude={lon_2}"
-        "&current=temperature_2m,wind_speed_10m,weather_code"
+        "&current=temperature_2m,wind_speed_10m,weather_code,precipitation"
     )
     data_2 = response_2.json()
 # Extract and return selected current weather metrics
     return {
         "temp_2": data_2["current"]["temperature_2m"],
         "wind_2": data_2["current"]["wind_speed_10m"],
-        "code_2": data_2["current"]["weather_code"]
+        "code_2": data_2["current"]["weather_code"],
+        "rain_2": data_2["current"]["precipitation"]
     }
 
 
@@ -867,6 +868,9 @@ print(
     f"Wind: {warsaw_2['wind_2']} km/h ({wind_description_2(warsaw_2['wind_2'])})")
 print()
 
+print(
+    f"Wind: {warsaw_2['wind_2']} km/h ({wind_description_2(warsaw_2['wind_2'])})")
+
 gizycko_2 = weather_2["Gizycko"]
 print("Gizycko")
 print(
@@ -882,3 +886,17 @@ print(
 print(
     f"Wind: {zabrze_2['wind_2']} km/h ({wind_description_2(zabrze_2['wind_2'])})")
 print()
+
+# ==========================
+# Rain (precipitation) support
+
+
+def rain_description_2(rain_2):
+    if rain_2 == 0:
+        return "no rain"
+    elif rain_2 < 2:
+        return "light rain"
+    elif rain_2 < 10:
+        return "moderate rain"
+    else:
+        return "heavy rain"
