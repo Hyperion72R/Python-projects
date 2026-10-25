@@ -44,3 +44,10 @@ print("\nFiles saved:")
 print("- output/sales_data.json")
 print("- output/sales_data.xlsx")
 print("- output/sales_with_totals.csv")
+
+
+# Summary statistics
+print("\nSummary:")
+print(f"Total revenue: {df['total'].sum():.2f}")
+print(f"Average order value: {df['total'].mean():.2f}")
+print(f"Biggest order: {df['total'].max():.2f}")
